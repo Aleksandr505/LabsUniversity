@@ -35,6 +35,7 @@ int main()
 	int z2 = safeInput();
 
 	double res = (x1 * x2 + y1 * y2 + z1 * z2) / (sqrt(x1*x1 + y1*y1 + z1*z1) * sqrt(x2*x2 + y2*y2 + z2*z2));
+	res = cos(res);
 
 	cout << "Косинус угла = " << res << endl;
 
