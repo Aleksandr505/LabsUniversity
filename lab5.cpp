@@ -10,7 +10,7 @@ int main() {
 
 	char baseStr[20] = "java";
 	char inStr[20];
-	char key[20];
+	int key[20];
 
 	cout << "Please, input string\n" << endl;
 	gets(inStr);
@@ -26,12 +26,11 @@ int main() {
 		}
 
 		if (!isComp) {
-            key[i] = 1 + rand() % 100;
-			inStr[i] += key[i];
+            key[i] = c + 0;
+			inStr[i] = key[i];
+			printf("%d ", key[i]);
 		} else {
-		    key[i] = 0;
+            printf("%c ", inStr[i]);
 		}
 	}
-
-	cout << inStr << endl;
 }
