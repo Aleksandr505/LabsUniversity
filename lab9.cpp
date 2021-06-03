@@ -11,7 +11,29 @@ public:
 	int n;
 
 	Node() {
+		n = ++Count;
 		cout << "Node number " << Count << " was created" << endl;
+	}
+
+	Node(int N) {
+		if (N != 0) {
+
+			N--;
+
+			if (N == 0) {
+				l = NULL;
+				r = NULL;
+			}
+
+			Node* left = l = new Node;
+			Node* right = r = new Node;
+			left->r = right;
+			right->l = left;
+			left->n = Count;
+			right->n = Count;
+
+			left->l = right->r = new Node(N - 1);
+		}
 	}
 	~Node() {
 		cout << "Node number " << Count << " was deleated" << endl;
@@ -19,37 +41,8 @@ public:
 };
 
 
-Node *add_node(int N)
-{
-	if (N == 0) return NULL;
-
-	Node* p;
-	p = new Node;
-	p->n = ++Count;
-	N--;
-
-	if (N == 0) {
-		p->l = NULL;
-		p->r = NULL;
-	}
-
-	Node* left = p->l = new Node;
-	Node* right = p->r = new Node;
-	left->r = right;
-	right->l = left;
-	left->n = ++Count;
-	right->n = ++Count;
-
-	left->l = right->r = add_node(N - 1);
-
-	return p;
-}
-
-
 int main() {
-	Node* tree = add_node(6);
-
-	cout << tree->l->l->r->n << endl;
+	Node* tree = new Node(6);
 
 	return 0;
 }
