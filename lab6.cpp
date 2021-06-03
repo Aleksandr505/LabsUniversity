@@ -1,4 +1,3 @@
-#include <cstring>
 #include <cstdio>
 #include<iostream>
 using namespace std;
@@ -12,7 +11,7 @@ struct Node {
 };
 
 
-Node *add_node(int N)
+Node* add_node(int N)
 {
 	if (N == 0) return NULL;
 
@@ -38,11 +37,38 @@ Node *add_node(int N)
 	return p;
 }
 
+void show() {
+	int j = 1;
+	printf("  %d\n", j);
+	j++;
+
+	for (int i = 0; i < Count; i++) {
+		if (j == 6) {
+			j = 1;
+			printf("  ");
+		}
+
+		if (j % 2 == 0) {
+			printf("%d   ", j);
+
+		}
+		else {
+			printf("%d\n", j);
+		}
+
+		j++;
+
+
+	}
+}
+
 
 int main() {
-	Node* tree = add_node(6);
+	Node* tree = add_node(18);
 
-	cout << tree->r->r->l->n << endl;
+	//cout << Count << endl;
+
+	show();
 
 	return 0;
 }
