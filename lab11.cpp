@@ -10,6 +10,7 @@ public:
 };
 
 class CNum : public FatherCNum {
+public:
 	CNum operator+(CNum y) {
 		CNum z;
 		z.Re = Re + y.Re;
@@ -37,9 +38,13 @@ class CNum : public FatherCNum {
 		z.Im = Im / y.Im;
 		return z;
 	}
+
+	void operator!() {
+		Im *= -1;
+	}
 };
 
-void trigView(CNum &z) {
+void trigView(CNum& z) {
 	double phi = atan2(z.Im, z.Re);
 	double r = sqrt(z.Re * z.Re + z.Im * z.Im);
 	cout << "Z = " << r << "*(cos(" << phi << ") + i*sin(" << phi << "))" << endl;
@@ -54,6 +59,9 @@ int main() {
 	x.Im = 9;
 	y.Re = 2;
 	y.Im = 3;
+
+	z = x + y;
+	z = x * y;
 
 	trigView(z);
 
