@@ -18,10 +18,22 @@ public:
 		return z;
 	}
 
+	CNum operator+(double y) {
+		CNum z;
+		z.Re = Re + y;
+		return z;
+	}
+
 	CNum operator-(CNum y) {
 		CNum z;
 		z.Re = Re - y.Re;
 		z.Im = Im - y.Im;
+		return z;
+	}
+
+	CNum operator-(double y) {
+		CNum z;
+		z.Re = Re - y;
 		return z;
 	}
 
@@ -32,10 +44,22 @@ public:
 		return z;
 	}
 
+	CNum operator*(double y) {
+		CNum z;
+		z.Re = Re * y;
+		return z;
+	}
+
 	CNum operator/(CNum y) {
 		CNum z;
 		z.Re = Re / y.Re;
 		z.Im = Im / y.Im;
+		return z;
+	}
+
+	CNum operator/(double y) {
+		CNum z;
+		z.Re = Re / y;
 		return z;
 	}
 
@@ -61,8 +85,15 @@ int main() {
 	y.Im = 3;
 
 	z = x + y;
+	z = x - y;
 	z = x * y;
+	z = x / y;
 
+	z = x + 5;
+	z = x - 5;
+	z = y * 5;
+	z = y / 5;
+	!z;
 	trigView(z);
 
 	return 0;
